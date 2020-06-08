@@ -35,7 +35,7 @@ const styles = {
         fontSize: "1.5rem"
     },
     miniColor: {
-        heigth: "25%",
+        height: "25%",
         width: "20%",
         display: "inline-block",
         margin: "0 auto",
