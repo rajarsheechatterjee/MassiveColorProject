@@ -14,6 +14,7 @@
 
 .ColorBox.go-back {
     background-color: black;
+    position: relative;
 }
 
 .copy-button, .back-button {
@@ -112,15 +113,15 @@
     color: white;
 } */
 
-.copy-msg.show {
+/* .copy-msg.show {
     opacity: 1;
     transform: scale(1);
     z-index: 25;
     transition: all 0.4s ease-in-out;
     transition-delay: 0.3s;
-}
+} */
 
-.copy-msg h1 {
+/* .copy-msg h1 {
     font-weight: 400;
     text-shadow: 1px 2px black;
     background: rgba(255, 255, 255, 0.2);
@@ -134,4 +135,4 @@
 .copy-msg p {
     font-size: 2rem;
     font-weight: 100;
-}
+} */
