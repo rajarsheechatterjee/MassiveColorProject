@@ -14,12 +14,19 @@ class App extends Component {
         this.state = { palettes: savedPalettes || seedColors };
         this.findPalette = this.findPalette.bind(this);
         this.savePalette = this.savePalette.bind(this);
+        this.deletePalette = this.deletePalette.bind(this);
     }
 
     findPalette(id){
         return this.state.palettes.find(function(palette){
             return palette.id === id;
         });
+    }
+    deletePalette(id){
+        this.setState(
+            st => ({palettes: st.palettes.filter(palette => palette.id !== id)}),
+            this.syncLocalStorage
+        );
     }
     savePalette(newPalette) {
         this.setState({ palettes: [...this.state.palettes, newPalette] },
@@ -49,9 +56,25 @@ class App extends Component {
                 />
                 <Route
                     exact
+                    path='/palette/:paletteId/:colorId'
+                    render={routeProps => (
+                        <SingleColorPalette
+                            colorId={routeProps.match.params.colorId}
+                            palette={generatePalette(
+                                this.findPalette(routeProps.match.params.paletteId)
+                            )}
+                        />
+                    )}
+                />
+                <Route
+                    exact
                     path="/"
                     render={(routeProps) => (
-                        <PaletteList {...routeProps} palettes={this.state.palettes} />
+                        <PaletteList
+                            palettes={this.state.palettes}
+                            deletePalette={this.deletePalette}
+                            {...routeProps}
+                        />
                     )}
                 />
                 <Route
@@ -61,18 +84,6 @@ class App extends Component {
                         <Palette
                             palette={generatePalette(
                                 this.findPalette(routeProps.match.params.id)
-                            )}
-                        />
-                    )}
-                />
-                <Route
-                    exact
-                    path='/palette/:paletteId/:colorId'
-                    render={routeProps => (
-                        <SingleColorPalette
-                            colorId={routeProps.match.params.colorId}
-                            palette={generatePalette(
-                                this.findPalette(routeProps.match.params.paletteId)
                             )}
                         />
                     )}
