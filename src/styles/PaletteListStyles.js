@@ -1,10 +1,14 @@
+import sizes from "./sizes";
+import bg from "./bg.svg";
+
 export default {
     root: {
-        backgroundColor: "blue",
         height: "100 vh",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#2c32aa",
+        backgroundImage: `url(${bg})`,
     },
     container: {
         width: "50%",
