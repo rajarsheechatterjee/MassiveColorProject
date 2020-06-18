@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import PaletteMetaForm from './PaletteMetaForm';
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import AddToPhotos from '@material-ui/icons/AddToPhotos';
 import Button from '@material-ui/core/Button';
+
 import styles from './styles/PaletteFormNavStyles';
 
 class PaletteFormNav extends Component {
@@ -55,7 +57,7 @@ class PaletteFormNav extends Component {
           position="fixed"
           color="default"
           className={classNames(classes.appBar, {
-            [classes.appBarShift]: open,
+            [classes.appBarShift]: open
           })}
         >
           <Toolbar disableGutters={!open}>
